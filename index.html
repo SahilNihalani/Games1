@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/LinuxGuy312/cdn/main/matchup-favicon.png" type="image/x-icon">
+  <meta name="description" content="A fun and interactive Memory Game where you match pairs of emoji cards. Test your memory and see how quickly you can find all the matching pairs!">
+  <meta name="keywords" content="match up, memory game, emoji game, matching game, card game, fun game">
+  <meta name="author" content="Eren (@WH0907)">
+  <meta property="og:title" content="Match Up">
+  <meta property="og:description" content="A fun and interactive Memory Game where you match pairs of emoji cards. Test your memory and see how quickly you can find all the matching pairs!">
+  <meta property="og:type" content="website">
+  <title>Match Up</title>
+  <link href="styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen select-none font-['Quicksand']">
+    <div class="text-center">
+        <h1 class="text-4xl font-bold mb-8">🃏 Match Up 🃏</h1>
+    <div id="start-screen" class="mb-4">
+      <label for="time-input" class="block text-lg font-semibold mb-2">Enter Time Limit (1-3 minutes):</label>
+      <input type="number" id="time-input" min="1" max="3" value="1" class="w-24 px-3 py-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <button id="start-game" class="px-6 py-2 bg-violet-500 text-white rounded-lg hover:bg-violet-600 transition duration-300 mt-4">
+        Start Game
+      </button>
+    </div>
+    <div id="timer" class="timer font-['Courier New'] font-['Courier'] font-bold text-xl text-center mb-4"></div>
+    <div id="game-board" class="grid grid-cols-4 gap-3 md:gap-4"></div>
+    <p id="message" class="mt-4 text-lg font-semibold"></p>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg text-center z-50">
+    <h2 id="popup-title" class="text-2xl font-bold mb-4"></h2>
+    <p id="popup-message" class="text-lg"></p>
+    <div class="mt-4 flex justify-center space-x-4">
+      <button id="restart-game" class="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300">
+        Restart
+      </button>
+      <button id="close-popup" onclick="flipAllCards()" class="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition duration-300">
+          Ok
+      </button>
+    </div>
+  </div>
+  
+  <!-- Overlay -->
+  <div id="overlay" class="overlay hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-40"></div>
+  <script src="script.js"></script>
+</body>
+</html>
